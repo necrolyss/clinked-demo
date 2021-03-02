@@ -2,6 +2,7 @@
 
 This demo app provides role-based API (authorization, articles, statistics), storage is in-memory H2 database (with some initial records in data.sql file). 
 DB entity model looks following :
+
 ![clinked-model](https://user-images.githubusercontent.com/16892576/109687845-52386e80-7b8c-11eb-8ea3-7f883f642dcb.png)
 
 There are 3 user types : USER (can add and list articles), ADMIN (can query article statistics), AUTHOR (can nothing, but used as user for article author). There can be multiple roles assigned to 1 user.
@@ -33,7 +34,9 @@ Then copy-paste accessToken value from response.
 	"password": "password"
 }
 3.7) Replace access token in Authorization header for previous request and then retry to get count. Non-mandatory parameter is "period", possible values are [day,week,month,year]. 
+
 ![Clinked-stats-month](https://user-images.githubusercontent.com/16892576/109692538-53b86580-7b91-11eb-934d-33d42eaedba2.png)
+
 3.8) If trying different period, like **http://localhost:8080/api/stats/articles/count?period=azaza** error is handled \ wrapped in lv.dev.clinked.demo.infra.ApplicationExceptionHandler and response will contain localized polite error message.
 
 - Project has 100% code coverage for controller | service | util packages (others are covered less for argumented reasons)
