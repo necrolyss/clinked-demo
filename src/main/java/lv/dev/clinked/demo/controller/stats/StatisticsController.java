@@ -27,7 +27,7 @@ public class StatisticsController {
     }
 
     @GetMapping("/articles/count")
-    ResponseEntity<PublishedArticlesResponse> countForPeriod(
+    public ResponseEntity<PublishedArticlesResponse> countForPeriod(
             @RequestParam(value = "period", required = false) String period) {
         Integer articleCount = statisticsService.articleCountForPeriod(queryPeriodOf(period));
         return ResponseEntity.ok(new PublishedArticlesResponse(articleCount));

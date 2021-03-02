@@ -46,7 +46,7 @@ public class ArticleController {
 
     @PostMapping("/create")
     @PreAuthorize("hasRole('ROLE_USER')")
-    ResponseEntity<ApiResponse> createArticle(@Valid @RequestBody CreateArticleRequest articleRequest) {
+    public ResponseEntity<ApiResponse> createArticle(@Valid @RequestBody CreateArticleRequest articleRequest) {
         articleService.persist(articleOf(articleRequest));
         String successMessage = articleCreationSuccessMessage();
         return ResponseEntity.ok(new ApiResponse(true, successMessage));
@@ -54,7 +54,7 @@ public class ArticleController {
 
     @GetMapping("/all")
     @PreAuthorize("hasRole('ROLE_USER')")
-    PagedResponse<ArticleSummary> listArticles(@RequestParam(value = "page", defaultValue = DEFAULT_PAGE_NUMBER) int pageNumber,
+    public PagedResponse<ArticleSummary> listArticles(@RequestParam(value = "page", defaultValue = DEFAULT_PAGE_NUMBER) int pageNumber,
                                                       @RequestParam(value = "size", defaultValue = DEFAULT_PAGE_SIZE) int pageSize) {
         Page<ArticleSummary> articleSummaries = articlePage(pageNumber, pageSize);
         return new PagedResponse<>(articleSummaries.getContent(),

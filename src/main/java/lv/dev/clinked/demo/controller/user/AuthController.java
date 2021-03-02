@@ -37,7 +37,7 @@ class AuthController {
     }
 
     @PostMapping("/signin")
-    ResponseEntity<JwtAuthenticationResponse> authenticateUser(HttpServletRequest httpServletRequest,
+    public ResponseEntity<JwtAuthenticationResponse> authenticateUser(HttpServletRequest httpServletRequest,
                                                                       HttpServletResponse httpServletResponse,
                                                                       @Valid @RequestBody LoginRequest loginRequest) {
         Authentication authentication = authenticationOf(loginRequest);
