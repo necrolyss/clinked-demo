@@ -5,7 +5,7 @@ DB entity model looks following :
 
 ![clinked-model](https://user-images.githubusercontent.com/16892576/109687845-52386e80-7b8c-11eb-8ea3-7f883f642dcb.png)
 
-There are 3 user types : USER (can add and list articles), ADMIN (can query article statistics), AUTHOR (can nothing, but used as user for article author). There can be multiple roles assigned to 1 user.
+Project uses Java 15 with preview features (records) and "standard" stack - springboot, JPA, JWT for authorization. There are 3 user types : USER (can add and list articles), ADMIN (can query article statistics), AUTHOR (can nothing, but used as user for article author). There can be multiple roles assigned to 1 user.
 
 For local testing :
 1) git clone repository
