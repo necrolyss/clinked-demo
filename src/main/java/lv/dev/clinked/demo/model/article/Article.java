@@ -36,9 +36,6 @@ public class Article {
     @NotNull
     private Date publishDate;
 
-    public Article() {
-    }
-
     public Long getId() {
         return id;
     }
